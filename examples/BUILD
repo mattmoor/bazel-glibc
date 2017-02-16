@@ -28,3 +28,19 @@ docker_build(
     files = [":hello-cc"],
     entrypoint = ["/hello-cc"]
 )
+
+load("@subpar//:subpar.bzl", "par_binary")
+
+par_binary(
+    name = "hello-py",
+    srcs = ["main.py"],
+    main = "main.py",
+)
+
+# TODO(mattmoor): We need a hermetic par.
+# docker_build(
+#     name = "py",
+#     base = "//base",
+#     files = [":hello-py.par"],
+#     entrypoint = ["/hello-py.par"]
+# )
