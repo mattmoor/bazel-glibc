@@ -15,3 +15,18 @@ docker_build(
        "@libstdcpp6//file",
     ],
 )
+
+docker_build(
+    name = "java8",
+    base = ":cc",
+    entrypoint = [
+       "./usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java",
+       "-jar",
+       # We expect users to use:
+       # cmd = ["/path/to/deploy.jar", "--option1", ...]
+    ],
+    debs = [
+       "@zlib//file",
+       "@openjdk_jre8//file",
+    ],
+)

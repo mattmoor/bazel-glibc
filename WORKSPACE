@@ -32,3 +32,13 @@ http_file(
    name = "libstdcpp6",
    url = "http://ftp.us.debian.org/debian/pool/main/g/gcc-4.9/libstdc++6_4.9.2-10_amd64.deb",
 )
+
+http_file(
+   name = "openjdk_jre8",
+   url = "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u121-b13-3_amd64.deb",
+)
+
+http_file(
+   name = "zlib",
+   url = "http://ftp.us.debian.org/debian/pool/main/z/zlib/zlib1g_1.2.8.dfsg-2+b1_amd64.deb",
+)
