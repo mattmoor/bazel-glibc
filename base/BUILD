@@ -17,6 +17,19 @@ docker_build(
 )
 
 docker_build(
+    name = "python27",
+    base = ":base",
+    entrypoint = [
+       "./usr/bin/python2.7",
+    ],
+    debs = [
+       "@zlib//file",
+       "@python27//file",
+       "@libpython27//file",
+    ],
+)
+
+docker_build(
     name = "java8",
     base = ":cc",
     entrypoint = [

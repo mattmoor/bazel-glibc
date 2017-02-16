@@ -37,10 +37,9 @@ par_binary(
     main = "main.py",
 )
 
-# TODO(mattmoor): We need a hermetic par.
-# docker_build(
-#     name = "py",
-#     base = "//base",
-#     files = [":hello-py.par"],
-#     entrypoint = ["/hello-py.par"]
-# )
+docker_build(
+    name = "py",
+    base = "//base:python27",
+    files = [":hello-py.par"],
+    cmd = ["/hello-py.par"],
+)
