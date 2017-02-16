@@ -13,5 +13,15 @@ go_repositories()
 # You can browse the parent directory in a browser.
 http_file(
    name = "glibc",
-   url = "http://ftp.us.debian.org/debian/pool/main/e/eglibc/libc6_2.13-38+deb7u10_amd64.deb",
+   url = "http://ftp.us.debian.org/debian/pool/main/g/glibc/libc6_2.19-18+deb8u7_amd64.deb",
+)
+
+http_file(
+   name = "libgcc1",
+   url = "http://ftp.us.debian.org/debian/pool/main/g/gcc-4.9/libgcc1_4.9.2-10_amd64.deb",
+)
+
+http_file(
+   name = "libstdcpp6",
+   url = "http://ftp.us.debian.org/debian/pool/main/g/gcc-4.9/libstdc++6_4.9.2-10_amd64.deb",
 )
