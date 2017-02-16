@@ -1,0 +1,28 @@
+steps:
+- name: gcr.io/cloud-builders/bazel
+  args: ['run', '//base']
+- name: gcr.io/cloud-builders/docker
+  args: ['tag', 'bazel/base:base', 'gcr.io/convoy-adapter/bazel:base']
+
+- name: gcr.io/cloud-builders/bazel
+  args: ['run', '//base:cc']
+- name: gcr.io/cloud-builders/docker
+  args: ['tag', 'bazel/base:cc', 'gcr.io/convoy-adapter/bazel:cc']
+
+- name: gcr.io/cloud-builders/bazel
+  args: ['run', '//base:python27']
+- name: gcr.io/cloud-builders/docker
+  args: ['tag', 'bazel/base:python27', 'gcr.io/convoy-adapter/bazel:python27']
+
+- name: gcr.io/cloud-builders/bazel
+  args: ['run', '//base:java8']
+- name: gcr.io/cloud-builders/docker
+  args: ['tag', 'bazel/base:java8', 'gcr.io/convoy-adapter/bazel:java8']
+
+# The resulting images to push to GCR.
+images: [
+  'gcr.io/convoy-adapter/bazel:base',
+  'gcr.io/convoy-adapter/bazel:cc',
+  'gcr.io/convoy-adapter/bazel:python27',
+  'gcr.io/convoy-adapter/bazel:java8',
+]
