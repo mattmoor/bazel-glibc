@@ -1,4 +1,4 @@
-workspace(name = "bazel_libc")
+workspace(name = "bazel_glibc")
 
 http_file(
    name = "glibc",
