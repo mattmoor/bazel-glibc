@@ -10,11 +10,22 @@ load("@io_bazel_rules_go//go:def.bzl", "go_repositories")
 
 go_repositories()
 
+# For packaging python
 git_repository(
     name = "subpar",
     remote = "https://github.com/google/subpar",
     commit = "74529f1df2178f07d34c72b3d270355dab2a10fc",
 )
+
+# Rust rules
+git_repository(
+    name = "io_bazel_rules_rust",
+    remote = "https://github.com/bazelbuild/rules_rust.git",
+    tag = "0.0.3",
+)
+load("@io_bazel_rules_rust//rust:rust.bzl", "rust_repositories")
+
+rust_repositories()
 
 # For everything.
 http_file(
@@ -55,3 +66,4 @@ http_file(
    name = "python27",
    url = "http://ftp.us.debian.org/debian/pool/main/p/python2.7/python2.7-minimal_2.7.9-2+deb8u1_amd64.deb",
 )
+

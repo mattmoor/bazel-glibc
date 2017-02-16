@@ -43,3 +43,17 @@ docker_build(
     files = [":hello-py.par"],
     cmd = ["/hello-py.par"],
 )
+
+load("@io_bazel_rules_rust//rust:rust.bzl", "rust_binary")
+
+rust_binary(
+    name = "hello_rust",
+    srcs = ["hello.rs"],
+)
+
+docker_build(
+    name = "rust",
+    base = "//base:cc",
+    files = [":hello_rust"],
+    entrypoint = ["/hello_rust"]
+)
