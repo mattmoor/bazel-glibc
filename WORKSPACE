@@ -37,6 +37,16 @@ git_repository(
 load("@io_bazel_rules_scala//scala:scala.bzl", "scala_repositories")
 scala_repositories()
 
+# D rules
+git_repository(
+    name = "io_bazel_rules_d",
+    remote = "https://github.com/bazelbuild/rules_d.git",
+    commit = "0019cde76f74f78e7ec58f14284ec72ed9283014",
+)
+
+load("@io_bazel_rules_d//d:d.bzl", "d_repositories")
+d_repositories()
+
 # For everything.
 http_file(
    name = "glibc",

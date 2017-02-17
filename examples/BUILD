@@ -57,3 +57,17 @@ docker_build(
     files = [":hello_rust"],
     entrypoint = ["/hello_rust"]
 )
+
+load("@io_bazel_rules_d//d:d.bzl", "d_binary")
+
+d_binary(
+    name = "hello-d",
+    srcs = ["main.d"],
+)
+
+docker_build(
+    name = "d",
+    base = "//base:cc",
+    files = [":hello-d"],
+    entrypoint = ["/hello-d"]
+)
