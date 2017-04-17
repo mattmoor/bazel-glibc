@@ -73,7 +73,7 @@ http_file(
 # For Java
 http_file(
    name = "openjdk_jre8",
-   url = "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u121-b13-3_amd64.deb",
+   url = "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u121-b13-4_amd64.deb",
 )
 
 # For Python
