@@ -1,6 +1,6 @@
 package(default_visibility = ["//visibility:public"])
 
-load("@bazel_tools//tools/build_defs/docker:docker.bzl", "docker_build")
+load("@io_bazel_rules_docker//docker:docker.bzl", "docker_build")
 
 docker_build(
     name = "base",
@@ -40,6 +40,8 @@ docker_build(
     ],
     debs = [
        "@zlib//file",
+       "@libfreetype//file",
+       "@libpng//file",
        "@openjdk_jre8//file",
     ],
 )

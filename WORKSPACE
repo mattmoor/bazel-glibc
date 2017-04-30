@@ -10,12 +10,13 @@ load("@io_bazel_rules_go//go:def.bzl", "go_repositories")
 
 go_repositories()
 
-# For packaging python
-git_repository(
-    name = "subpar",
-    remote = "https://github.com/google/subpar",
-    commit = "74529f1df2178f07d34c72b3d270355dab2a10fc",
-)
+# TODO(mattmoor): From docker_repositories()
+# # For packaging python
+# git_repository(
+#     name = "subpar",
+#     remote = "https://github.com/google/subpar",
+#     commit = "74529f1df2178f07d34c72b3d270355dab2a10fc",
+# )
 
 # Rust rules
 git_repository(
@@ -73,7 +74,17 @@ http_file(
 # For Java
 http_file(
    name = "openjdk_jre8",
-   url = "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u121-b13-4_amd64.deb",
+   url = "http://ftp.us.debian.org/debian/pool/main/o/openjdk-8/openjdk-8-jre-headless_8u121-b13-4.1_amd64.deb",
+)
+
+http_file(
+   name = "libfreetype",
+   url = "http://security.debian.org/debian-security/pool/updates/main/f/freetype/libfreetype6_2.5.2-3+deb8u2_amd64.deb",
+)
+
+http_file(
+   name = "libpng",
+   url = "http://ftp.us.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb",
 )
 
 # For Python
@@ -87,3 +98,15 @@ http_file(
    url = "http://ftp.us.debian.org/debian/pool/main/p/python2.7/python2.7-minimal_2.7.9-2+deb8u1_amd64.deb",
 )
 
+# Docker rules.
+git_repository(
+    name = "io_bazel_rules_docker",
+    remote = "https://github.com/bazelbuild/rules_docker.git",
+    commit = "cd0363f77182689303f3d5a871348fa8ab78491e",
+)
+
+load(
+  "@io_bazel_rules_docker//docker:docker.bzl",
+  "docker_repositories",
+)
+docker_repositories()
