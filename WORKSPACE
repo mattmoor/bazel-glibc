@@ -87,6 +87,27 @@ http_file(
    url = "http://ftp.us.debian.org/debian/pool/main/libp/libpng/libpng12-0_1.2.50-2+deb8u3_amd64.deb",
 )
 
+new_http_archive(
+   name = "jetty",
+   build_file_content = """
+package(default_visibility=["//visibility:public"])
+
+load("@bazel_tools//tools/build_defs/pkg:pkg.bzl", "pkg_tar")
+
+pkg_tar(
+  name = "tar",
+  files = glob(["**/*"]),
+  package_dir = "/jetty",
+  # See: https://github.com/bazelbuild/bazel/issues/2176
+  strip_prefix = ".",
+)
+""",
+   url = "http://central.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.4.4.v20170414/jetty-distribution-9.4.4.v20170414.tar.gz",
+   strip_prefix = "jetty-distribution-9.4.4.v20170414/",
+   type = "tgz",
+)
+
+
 # For Python
 http_file(
    name = "libpython27",
